@@ -48,6 +48,10 @@ namespace DB
             Vector3 projectedVelocity = Vector3.ProjectOnPlane(moveDirection, normalVector);
             rigidbody.velocity = projectedVelocity;
 
+            // Handle Animation
+            animatorHandler.UpdateAnimatorValues(inputHandler.moveAmount, 0);
+
+
             // Handle Rotation
             if(animatorHandler.canRotate)
             {
