@@ -7,6 +7,8 @@ namespace DB
     public class AnimationHandler : MonoBehaviour
     {
         public Animator anim;
+        public InputManager inputManager;
+        public PlayerLocomotion playerLocomotion;
         int vertical;
         int horizontal;
         public bool canRotate;
@@ -14,6 +16,8 @@ namespace DB
         public void Initialize()
         {
             anim = GetComponent<Animator>();
+            inputManager = GetComponent<InputManager>();
+            playerLocomotion = GetComponent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
         }
@@ -88,6 +92,20 @@ namespace DB
         public void StopRotation()
         {
             canRotate = false;
+        }
+
+        private void OnAnimatorMove()
+        {
+            if(inputManager.isInteracting == false)
+            {
+                return;
+            }
+            float delta = Time.deltaTime;
+            playerLocomotion.rigidbody.drag = 0;
+            Vector3 deltaPosition = anim.deltaPosition;
+            deltaPosition.y = 0;
+            Vector3 velocity = deltaPosition / delta;
+            playerLocomotion.rigidbody.velocity = velocity;
         }
     }
 }

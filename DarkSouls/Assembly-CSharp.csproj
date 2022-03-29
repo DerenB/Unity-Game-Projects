@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\CameraHandler.cs" />
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerControls.cs" />
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerManager.cs" />
+    <Compile Include="Assets\ResetIsInteracting.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
