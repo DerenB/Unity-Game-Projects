@@ -568,6 +568,9 @@ MonoBehaviour:
   moveAmount: 0
   mouseX: 0
   mouseY: 0
+  b_Input: 0
+  rollFlag: 0
+  isInteracting: 0
 --- !u!1 &1198019991
 GameObject:
   m_ObjectHideFlags: 0

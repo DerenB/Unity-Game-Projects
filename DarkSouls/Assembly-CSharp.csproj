@@ -59,8 +59,9 @@
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerLocomotion.cs" />
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\AnimationHandler.cs" />
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\InputManager.cs" />
-    <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerControls.cs" />
     <Compile Include="Assets\Scripts-Movement_Animation_Camera\CameraHandler.cs" />
+    <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerControls.cs" />
+    <Compile Include="Assets\Scripts-Movement_Animation_Camera\PlayerManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
