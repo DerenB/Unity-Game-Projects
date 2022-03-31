@@ -16,9 +16,8 @@ namespace DB
 
         public bool rollFlag;
         public bool sprintFlag;
-
         public float rollInputTimer;
-        public bool isInteracting;
+        
 
         PlayerControls inputActions;
         CameraHandler cameraHandler;
@@ -26,22 +25,9 @@ namespace DB
         Vector2 movementInput;
         Vector2 cameraInput;
 
-        private void Awake()
-        {
-            cameraHandler = CameraHandler.singleton;
-            isInteracting = false;
-        }
+        
 
-        private void FixedUpdate()
-        {
-            float delta = Time.fixedDeltaTime;
-
-            if(cameraHandler != null)
-            {
-                cameraHandler.FollowTarget(delta);
-                cameraHandler.HandleCameraRotation(delta, mouseX, mouseY);
-            }
-        }
+        
 
         public void OnEnable()
         {

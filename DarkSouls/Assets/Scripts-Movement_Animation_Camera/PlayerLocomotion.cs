@@ -7,6 +7,7 @@ namespace DB
 {
     public class PlayerLocomotion : MonoBehaviour
     {
+        PlayerManager playerManager;
         Transform cameraObject;
         InputManager inputHandler;
         Vector3 moveDirection;
@@ -17,34 +18,20 @@ namespace DB
         public new Rigidbody rigidbody;
         public GameObject normalCamera;
 
-        [Header("Stats")]
+        [Header("Movement Stats")]
         [SerializeField] float movementSpeed = 5;
         [SerializeField] float sprintSpeed = 7;
         [SerializeField] float rotationSpeed = 10;
 
-        public bool isSprinting;
-
-
         void Start()
         {
+            playerManager = GetComponent<PlayerManager>();
             rigidbody = GetComponent<Rigidbody>();
             inputHandler = GetComponent<InputManager>();
             animatorHandler = GetComponentInChildren<AnimationHandler>();
             cameraObject = Camera.main.transform;
             myTransform = transform;
             animatorHandler.Initialize();
-        }
-
-        public void Update()
-        {
-            float delta = Time.deltaTime;
-
-            isSprinting = inputHandler.b_Input;
-            inputHandler.TickInput(delta);
-            HandleMovement(delta);
-            HandleRollingAndSprinting(delta);
-
-            
         }
 
         #region Movement
@@ -92,7 +79,7 @@ namespace DB
             if(inputHandler.sprintFlag)
             {
                 speed = sprintSpeed;
-                isSprinting = true;
+                playerManager.isSprinting = true;
                 moveDirection *= speed;
             }
             else
@@ -104,7 +91,7 @@ namespace DB
             rigidbody.velocity = projectedVelocity;
 
             // Handle Animation
-            animatorHandler.UpdateAnimatorValues(inputHandler.moveAmount, 0, isSprinting);
+            animatorHandler.UpdateAnimatorValues(inputHandler.moveAmount, 0, playerManager.isSprinting);
 
 
             // Handle Rotation

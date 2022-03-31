@@ -6,15 +6,17 @@ namespace DB
 {
     public class AnimationHandler : MonoBehaviour
     {
+        PlayerManager playerManager;
         public Animator anim;
-        public InputManager inputManager;
-        public PlayerLocomotion playerLocomotion;
+        InputManager inputManager;
+        PlayerLocomotion playerLocomotion;
         int vertical;
         int horizontal;
         public bool canRotate;
 
         public void Initialize()
         {
+            playerManager = GetComponentInParent<PlayerManager>();
             anim = GetComponent<Animator>();
             inputManager = GetComponentInParent<InputManager>();
             playerLocomotion = GetComponentInParent<PlayerLocomotion>();
@@ -102,7 +104,7 @@ namespace DB
 
         private void OnAnimatorMove()
         {
-            if(inputManager.isInteracting == false)
+            if(playerManager.isInteracting == false)
             {
                 return;
             }
