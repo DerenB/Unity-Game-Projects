@@ -16,8 +16,8 @@ namespace DB
         public void Initialize()
         {
             anim = GetComponent<Animator>();
-            inputManager = GetComponent<InputManager>();
-            playerLocomotion = GetComponent<PlayerLocomotion>();
+            inputManager = GetComponentInParent<InputManager>();
+            playerLocomotion = GetComponentInParent<PlayerLocomotion>();
             vertical = Animator.StringToHash("Vertical");
             horizontal = Animator.StringToHash("Horizontal");
         }

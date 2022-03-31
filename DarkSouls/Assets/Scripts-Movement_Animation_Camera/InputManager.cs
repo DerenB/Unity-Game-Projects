@@ -25,6 +25,7 @@ namespace DB
         private void Awake()
         {
             cameraHandler = CameraHandler.singleton;
+            isInteracting = false;
         }
 
         private void FixedUpdate()
@@ -72,7 +73,7 @@ namespace DB
 
         private void HandleRollInput(float delta)
         {
-            b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Started;
+            b_Input = inputActions.PlayerActions.Roll.phase == UnityEngine.InputSystem.InputActionPhase.Performed;
 
             if(b_Input)
             {
