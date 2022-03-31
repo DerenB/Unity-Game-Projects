@@ -13,7 +13,11 @@ namespace DB
         public float mouseY;
 
         public bool b_Input;
+
         public bool rollFlag;
+        public bool sprintFlag;
+
+        public float rollInputTimer;
         public bool isInteracting;
 
         PlayerControls inputActions;
@@ -77,7 +81,18 @@ namespace DB
 
             if(b_Input)
             {
-                rollFlag = true;
+                rollInputTimer += delta;
+                sprintFlag = true;
+            }
+            else
+            {
+                if(rollInputTimer > 0 && rollInputTimer < 0.5f)
+                {
+                    sprintFlag = false;
+                    rollFlag = true;
+                }
+
+                rollInputTimer = 0;
             }
         }
     }
