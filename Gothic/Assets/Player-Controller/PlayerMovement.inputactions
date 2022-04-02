@@ -1,0 +1,12 @@
+{
+    "name": "PlayerMovement",
+    "maps": [
+        {
+            "name": "PlaverMove",
+            "id": "e4b0acc3-4465-4926-a53f-58d20f68d99c",
+            "actions": [],
+            "bindings": []
+        }
+    ],
+    "controlSchemes": []
+}
